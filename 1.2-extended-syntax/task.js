@@ -38,8 +38,6 @@ function getAverageMark(marks){
     return averageMark;
 }
 
-getAverageMark(marks);
-
 function askDrink(name, dateOfBirthday) {
   let now = new Date();
   let age = now.getFullYear() - dateOfBirthday.getFullYear();
@@ -50,5 +48,3 @@ function askDrink(name, dateOfBirthday) {
     return `Сожалею, ${name}, но я не могу вам продать алкоголь. Зато могу предложить вам замечательный клюквенный компот!`;
   }
 }
-
-askDrink('Иван', 20);
