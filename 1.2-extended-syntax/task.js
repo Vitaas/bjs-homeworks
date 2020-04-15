@@ -39,11 +39,14 @@ for(let i = 0; i < marks.length; i++) {
   sumMarks += marks[i];
 }
 
+<<<<<<< HEAD
 let averageMark = sumMarks / marks.length;
 
 return averageMark;
 }
 
+=======
+>>>>>>> eb807a31b053309e3facf63f360a552dd6580c03
 function askDrink(name, dateOfBirthday) {
   let now = new Date();
   let age = now.getFullYear() - dateOfBirthday.getFullYear();
@@ -53,4 +56,8 @@ function askDrink(name, dateOfBirthday) {
   } else {
     return `Сожалею, ${name}, но я не могу вам продать алкоголь. Зато могу предложить вам замечательный клюквенный компот!`;
   }
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> eb807a31b053309e3facf63f360a552dd6580c03
