@@ -10,35 +10,39 @@ function getResult(a,b,c){
   
 
   if (d < 0) {
-    return result.push[''];
+    return result;
   } else if (d === 0) {
-    return result.push(x);
+    result[0] = x;
   } else {
-    return result.push(x1, x2);
+    result[0] = x1;
+    result[1] = x2;
   }
+  return result;
 }
 
 let marks = [4, 5, 5, 3, 4, 3, 5];
 
 function getAverageMark(marks){
 
-  let sumMarks = 0;
-  let averageMark = 0;
-
-  if (marks.length > 5) {
+if (marks.lenght == 0) {
+  return 0;
+  } else if (marks.length > 5) {
     console.log('Оценок больше 5, средняя будет считаться по первым пяти оценкам');
-    let marks = marks.splice(0, 5);
-  } else if (marks.lenght == 0) {
-    return 0;
+    marks = marks.splice(0, 5);
   } else {
-    for (let i = 0; 5 >= marks.length; i++) {
-      sum += marks[i];
-      averageMark = sumMarks / marks.length;
-    }
-    return averageMark;
+    return marks;
+  }
+
+let sumMarks = 0;
+
+for(let i = 0; i < marks.length; i++) {
+  sumMarks += marks[i];
 }
 
-getAverageMark(marks);
+let averageMark = sumMarks / marks.length;
+
+return averageMark;
+}
 
 function askDrink(name, dateOfBirthday) {
   let now = new Date();
@@ -50,5 +54,3 @@ function askDrink(name, dateOfBirthday) {
     return `Сожалею, ${name}, но я не могу вам продать алкоголь. Зато могу предложить вам замечательный клюквенный компот!`;
   }
 }
-
-askDrink('Иван', 20);
