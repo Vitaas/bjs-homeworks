@@ -1,61 +1,52 @@
-'use strict';
+"use strict";
 
-function calculateTotalMortgage(percent,contribution,amount,date) {
-
-  let monthlyPercent = percent / 12 / 100;
-
+function calculateTotalMortgage(percent, contribution, amount, date) {
   if (isNaN(percent)) {
-    percent = parseInt(percent);
-    if (isNaN(percent)) {
-      console.log(`Параметр "percent" содержит неправильное значение ${percent}`);
-    }
+    return `Параметр <Процентная ставка> содержит неправильное значение <${percent}>`;
   }
 
   if (isNaN(contribution)) {
-    contribution = parseInt(contribution);
-    if (isNaN(contribution)) {
-      console.log(`Параметр "contribution" содержит неправильное значение ${contribution}`);
-    }
+    return `Параметр <Первоначальный взнос> содержит неправильное значение <${contribution}>`;
   }
-    
+
   if (isNaN(amount)) {
-    amount = parseInt(amount);
-    if (isNaN(amount)) {
-      console.log(`Параметр "amount" содержит неправильное значение ${amount}`);
-    }
+    return `Параметр <Сумма кредита> содержит неправильное значение <${amount}>`;
   }
 
   if (isNaN(date)) {
-    date = parseInt(date);
-    if (isNaN(date)) {
-      console.log(`Параметр "date" содержит неправильное значение ${date}`);
-    }
+    return `Параметр <Срок кредита> содержит неправильное значение <${date}>`;
   }
 
-// Посчитайте тело кредита: сумма, которую необходимо вернуть банку. (сумма кредита минус первоначальный взнос)
+  const parsedPercent = parseInt(percent, 10);
+  const parsedContribution = parseInt(contribution, 10);
+  const parsedAmount = parseInt(amount, 10);
+  const parsedDate = parseInt(date, 10);
 
-  let bodyLoan = amount - contribution;
+  let monthlyPercent = parsedPercent / 12 / 100;
 
-// Ежемесячная оплата
+  // Посчитайте тело кредита: сумма, которую необходимо вернуть банку. (сумма кредита минус первоначальный взнос)
 
-  let monthlyPayment = amount * (monthlyPercent + monthlyPercent / (Math.pow((1 + monthlyPercent), date) - 1));
+  let bodyLoan = amount - parsedContribution;
 
-// Общая сумма, которую придется заплатить клиенту
+  // Ежемесячная оплата
 
-  let totalAmount = (monthlyPayment * date).toFixed(2);
+  let monthlyPayment =
+    parsedAmount *
+    (monthlyPercent +
+      monthlyPercent / (Math.pow(1 + monthlyPercent, parsedDate) - 1));
 
-  console.log(totalAmount);
+  // Общая сумма, которую придется заплатить клиенту
+
+  let totalAmount = (monthlyPayment * parsedDate).toFixed(2);
+
   return Number(totalAmount);
 }
 
-calculateTotalMortgage(10,0,20000,24)
+const result = calculateTotalMortgage("10", 0, 20000, 24);
+console.log("result", result);
 
 function getGreeting(name) {
-  if (name) {
-    return `Привет, мир! Меня зовут ${name}`
-  } else {
-    return 'Привет, мир! Меня зовут Аноним'
-  }
+  return `Привет, мир! Меня зовут ${name || "Аноним"}`;
 }
 
-getGreeting(undefined)
+getGreeting(undefined);
