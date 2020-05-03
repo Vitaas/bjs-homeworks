@@ -1,18 +1,19 @@
 //Задание 1
 
 function parseCount(amount) {
-  if(Number.parseInt(amount, 10)) {
-   return Number.parseInt(amount, 10)
-   } else {
-     throw new Error("Невалидное значение");
+  const parsedNum = Number.parseInt(amount, 10);
+    if (isNAN(parsedNum)) {
+      throw new Error("Невалидное значение");
+      } else {
+       return parsedNum;
   }
 }
 
 function validateCount(amount) {
   try {
-    return parseCount();
-  }catch(e){
-    return e;
+    return parseCount(amount);
+  } catch(err) {
+    return err;
   }
 }
 
@@ -23,27 +24,30 @@ class Triangle {
     this.a = a;
     this.b = b;
     this.c = c;
-    if ((this.a + this.b) < this.c || (this.a + this.c) < this.b) || (this.b + this.c) < this.a) {
+    if ((a + b) < c || (a + c) < b || (b + c) < a) {
       throw new Error("Треугольник с такими сторонами не существует");
     }
   }
 }
 
 getPerimeter() {
-  return this.a + this.b + this.c;
+  let perimetr = this.a + this.b + this.c;
+  return perimetr;
 }
 
 getArea() {
-  let p = (this.a + this.b + this.c) / 2
-  return Math.sqrt((p(p - this.a)(p - this.b)(p - this.c))
+  let p = getPerimetr() / 2
+  let area = Math.sqrt(p * (p - this.a) * (p - this.b) * (p - this.c));
+  return Number.parseFloat(area.toFixed(3));
 }
 
 function getTriangle(a, b, c) {
-  const triangle = new Triangle;
   try  {
+    const triangle = new Triangle(a, b, c);
     return triangle;
   } catch(e) {
-    return console.log("Ошибка! Неправильный треугольник");
-    // return e; - второй вариант возврата ошибки
+    let objectTriangle = {};
+    objectTriangle.getPerimeter = objectTriangle.getArea = () => 'Ошибка! Неправильный треугольник';
+		return objectTriangle;
   }
 }
