@@ -2,7 +2,7 @@
 
 function parseCount(amount) {
   const parsedNum = Number.parseInt(amount, 10);
-    if (isNAN(parsedNum)) {
+    if (isNaN(parsedNum)) {
       throw new Error("Невалидное значение");
       } else {
        return parsedNum;
@@ -28,17 +28,17 @@ class Triangle {
       throw new Error("Треугольник с такими сторонами не существует");
     }
   }
-}
 
-getPerimeter() {
-  let perimetr = this.a + this.b + this.c;
-  return perimetr;
-}
+  getPerimeter() {
+    let perimeter = this.a + this.b + this.c;
+    return perimeter;
+  }
 
-getArea() {
-  let p = getPerimetr() / 2
-  let area = Math.sqrt(p * (p - this.a) * (p - this.b) * (p - this.c));
-  return Number.parseFloat(area.toFixed(3));
+  getArea() {
+    let p = this.getPerimeter() / 2
+    let area = Math.sqrt(p * (p - this.a) * (p - this.b) * (p - this.c));
+    return Number.parseFloat(area.toFixed(3));
+  }
 }
 
 function getTriangle(a, b, c) {
