@@ -8,30 +8,30 @@ class Weapon {
     this.range = range;
     this.durabilityFirst = durability;
   }
-}
 
-takeDamage(damage) {
-  this.durability -= damage;
-  if (this.durability < 0) {
-    this.durability = 0;
+  takeDamage(damage) {
+    this.durability -= damage;
+    if (this.durability < 0) {
+      this.durability = 0;
+    }
   }
-}
 
-getDamage() {
-  if (this.durability == 0) {
-    return this.attack = 0;
-  } else if (this.durability < this.durabilityFirst * 0.3) {
-    return this.attack = this.attack / 2;
-  } else {
-    return this.attack;
+  getDamage() {
+    if (this.durability == 0) {
+      return this.attack = 0;
+    } else if (this.durability < this.durabilityFirst * 0.3) {
+      return this.attack = this.attack / 2;
+    } else {
+      return this.attack;
+    }
   }
-}
 
-isBroken() {
-  if (this.durability > 0) {
-    return true;
-  } else {
-    return false;
+  isBroken() {
+    if (this.durability > 0) {
+      return true;
+    } else {
+      return false;
+    }
   }
 }
 
@@ -56,7 +56,7 @@ console.log(StormStaff);
 
 //Задание 2
 
-class Arm extends Weapon {
+class Arm_new extends Weapon {
   constructor() {
   super()
     this.name = 'Рука';
@@ -67,7 +67,7 @@ class Arm extends Weapon {
   }
 }
 
-class Bow extends Weapon {
+class Bow_new extends Weapon {
   constructor() {
   super()
     this.name = 'Лук';
@@ -78,7 +78,7 @@ class Bow extends Weapon {
   }
 }
 
-class Sword extends Weapon {
+class Sword_new extends Weapon {
   constructor() {
   super()
     this.name = 'Меч';
@@ -89,7 +89,7 @@ class Sword extends Weapon {
   }
 }
 
-class Knife extends Weapon {
+class Knife_new extends Weapon {
   constructor() {
   super()
     this.name = 'Нож';
@@ -100,7 +100,7 @@ class Knife extends Weapon {
   }
 }
 
-class Staff extends Weapon {
+class Staff_new extends Weapon {
   constructor() {
   super()
     this.name = 'Посох';
@@ -111,7 +111,7 @@ class Staff extends Weapon {
   }
 }
 
-class LongBow extends Bow {
+class LongBow_new extends Bow_new {
   constructor() {
   super()
     this.name = 'Длинный Лук';
@@ -120,7 +120,7 @@ class LongBow extends Bow {
   }
 }
 
-class Axe extends Sword {
+class Axe_new extends Sword_new {
   constructor() {
   super()
     this.name = 'Секира';
@@ -129,7 +129,7 @@ class Axe extends Sword {
   }
 }
 
-class StormStaff extends Staff {
+class StormStaff_new extends Staff_new {
   constructor() {
   super()
     this.name = 'Посох Бури';
@@ -138,7 +138,7 @@ class StormStaff extends Staff {
   }
 }
 
-const arm = new Arm();
+const arm_new = new Arm_new();
 console.log(arm.name);
 console.log(arm.attack);
 console.log(arm.durability);
@@ -147,7 +147,7 @@ arm.takeDamage(100);
 arm.getDamage();
 console.log(arm.isBroken);
 
-const bow = new Bow();
+const bow_new = new Bow_new();
 console.log(bow.name);
 console.log(bow.attack);
 console.log(bow.durability);
@@ -156,7 +156,7 @@ bow.takeDamage(100);
 bow.getDamage();
 console.log(bow.isBroken);
 
-const sword = new Sword();
+const sword_new = new Sword_new();
 console.log(sword.name);
 console.log(sword.attack);
 console.log(sword.durability);
@@ -165,7 +165,7 @@ sword.takeDamage(100);
 sword.getDamage();
 console.log(sword.isBroken);
 
-const knife = new Knife();
+const knife_new = new Knife_new();
 console.log(knife.name);
 console.log(knife.attack);
 console.log(knife.durability);
@@ -174,7 +174,7 @@ knife.takeDamage(100);
 knife.getDamage();
 console.log(knife.isBroken);
 
-const staff = new Staff();
+const staff_new = new Staff_new();
 console.log(staff.name);
 console.log(staff.attack);
 console.log(staff.durability);
@@ -183,7 +183,7 @@ staff.takeDamage(100);
 staff.getDamage();
 console.log(staff.isBroken);
 
-const longBow = new LongBow();
+const longBow_new = new LongBow_new();
 console.log(longBow.name);
 console.log(longBow.attack);
 console.log(longBow.durability);
@@ -192,7 +192,7 @@ longBow.takeDamage(100);
 longBow.getDamage();
 console.log(longBow.isBroken);
 
-const axe = new Axe();
+const axe_new = new Axe_new();
 console.log(axe.name);
 console.log(axe.attack);
 console.log(axe.durability);
@@ -246,6 +246,7 @@ class StudentLog {
     }
     return totalAverage / Object.keys(this.subject).length;
   }
+}
 
 const log = new StudentLog('Олег Никифоров');
 console.log(log.getName());
