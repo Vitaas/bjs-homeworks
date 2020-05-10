@@ -13,43 +13,52 @@ function sum(...args) {
 }
 
 function compareArrays( arr1, arr2 ) {
-  if (arr1.length !== arr2.length) {
-    return false;
-  } else {
-    return arr1.every((element, index) => element === arr2[index])
+  if (arr1.length === arr2.length) {
+    let checkArr = arr1.every(function(element, index) {
+      return element === arr2[index];
+    });
+    return checkArr;
   }
 }
+
+// compareArrays([8,9], [6]);
 
 function memorize(fn, limit) {
   const memory = [];
 
   return function (...args) {
     let find = memory.find(element => compareArrays(element.args, args));
-  
-  let result = fn(...args);
 
-  if (find !== undefined) {
+  if (find) {
     console.log('Вызов из памяти');
     return find.result;
   }
+  
+  let result = fn(...args);
+
+  // memory.push({args, result});
 
    if (memory.length > limit) {
      memory.shift();
+     memory.push({args, result});
     } else {      
-      memory.push({args: args, result: result})            
+      memory.push({args, result})            
     }
     return result;
   }
 }
 
+const sumArr = memorize(sum, 5);
+console.log(sumArr(6, 5));
+
 const newArr = [[1,2,3], [1,2], [1,2,3], [1,2], [9,5,2,4]];
 
-function testCase(testFunction, timer) {
-  console.time(timer);
-  for (let i = 0; (i < 10 * arr.length); i++) {
+function testCase(testFunction) {
+  console.time('testFunction');
+  for (let i = 0; i < 10 * newArr.lenght; i++) {
     newArr.forEach(item => testFunction(...item));    
   }
-  console.timeEnd(timer);
+  console.timeEnd('testFunction');
 }
 
-testCase(sum, 'timer');
+testCase(sum);
