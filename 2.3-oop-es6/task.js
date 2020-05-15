@@ -45,6 +45,12 @@ const longBow = new Weapon('Длинный лук', 15, bow.durability, 4);
 const axe = new Weapon('Секира', 27, 800, sword.range);
 const stormStaff = new Weapon('Посох Бури', 10, staff.durability, 3);
 
+sword.takeDamage(50);
+console.log(sword.durability);
+knife.takeDamage(200);
+console.log(knife.firstDurability); 
+console.log(bow.getDamage())
+console.log(staff.isBroken())
 console.log(arm);
 console.log(bow);
 console.log(sword);
@@ -234,8 +240,8 @@ class StudentLog {
     let sumGrade = 0;
     let average = 0;
       if (this.subject[subject]) {
-        for (let i = 0; i < this.subjectn[subject].length; i++) {
-          sumGrade += this.subject[subject][i];
+        for (let grade of this.subject[subject]) {
+          sumGrade += grade;
         }
         average = sumGrade / this.subject[subject].length;
       }
@@ -259,7 +265,7 @@ log.addGrade(4, 'algebra');
 log.addGrade(5, 'geometry');
 log.addGrade(4, 'geometry');
 
-console.log(log.getAverageBySubject('geometry'));
 console.log(log.getAverageBySubject('algebra'));
+console.log(log.getAverageBySubject('geometry'));
 
 console.log(log.getTotalAverage());
