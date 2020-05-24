@@ -1,12 +1,12 @@
 //Задание 1
 
 class Weapon {
-  constructor() {
-    this.name;
-    this.attack;
-    this.durability;
-    this.range;
-    this.durabilityFirst;
+  constructor (name,attack,durability,range) {
+    this.name = name;
+    this.attack = attack;
+    this.durability = durability;
+    this.range = range;
+    this.durabilityFirst = durability;
   }
 
   takeDamage(damage) {
@@ -35,34 +35,9 @@ class Weapon {
   }
 }
 
-const arm = new Weapon('Рука', 1, Infinity, 1);
-const bow = new Weapon('Лук', 10, 200, 3);
-const sword = new Weapon('Меч', 25, 500, 1);
-const knife = new Weapon('Нож', 5, 300, 1);
-const staff = new Weapon('Посох', 8, 300, 2);
-
-const longBow = new Weapon('Длинный лук', 15, bow.durability, 4);
-const axe = new Weapon('Секира', 27, 800, sword.range);
-const stormStaff = new Weapon('Посох Бури', 10, staff.durability, 3);
-
-sword.takeDamage(50);
-console.log(sword.durability);
-knife.takeDamage(200);
-console.log(knife.firstDurability); 
-console.log(bow.getDamage())
-console.log(staff.isBroken())
-console.log(arm);
-console.log(bow);
-console.log(sword);
-console.log(knife);
-console.log(staff);
-console.log(longBow);
-console.log(axe);
-console.log(stormStaff);
-
 // //Задание 2
 
-class ArmNew extends Weapon {
+class Arm extends Weapon {
   constructor() {
   super()
     this.name = 'Рука';
@@ -72,7 +47,7 @@ class ArmNew extends Weapon {
   }
 }
 
-class BowNew extends Weapon {
+class Bow extends Weapon {
   constructor() {
   super()
     this.name = 'Лук';
@@ -82,7 +57,7 @@ class BowNew extends Weapon {
   }
 }
 
-class SwordNew extends Weapon {
+class Sword extends Weapon {
   constructor() {
   super()
     this.name = 'Меч';
@@ -92,7 +67,7 @@ class SwordNew extends Weapon {
   }
 }
 
-class KnifeNew extends Weapon {
+class Knife extends Weapon {
   constructor() {
   super()
     this.name = 'Нож';
@@ -102,7 +77,7 @@ class KnifeNew extends Weapon {
   }
 }
 
-class StaffNew extends Weapon {
+class Staff extends Weapon {
   constructor() {
   super()
     this.name = 'Посох';
@@ -112,7 +87,7 @@ class StaffNew extends Weapon {
   }
 }
 
-class LongBowNew extends BowNew {
+class LongBow extends Bow {
   constructor() {
   super()
     this.name = 'Длинный Лук';
@@ -121,7 +96,7 @@ class LongBowNew extends BowNew {
   }
 }
 
-class AxeNew extends SwordNew {
+class Axe extends Sword {
   constructor() {
   super()
     this.name = 'Секира';
@@ -130,7 +105,7 @@ class AxeNew extends SwordNew {
   }
 }
 
-class StormStaffNew extends StaffNew {
+class StormStaff extends Staff {
   constructor() {
   super()
     this.name = 'Посох Бури';
@@ -139,75 +114,75 @@ class StormStaffNew extends StaffNew {
   }
 }
 
-const armNew = new ArmNew();
+const arm = new Arm();
 
-console.log(armNew.name);
-console.log(armNew.attack);
-console.log(armNew.durability);
-console.log(armNew.range);
-armNew.takeDamage(100);
-console.log(armNew.getDamage());
-console.log(armNew.isBroken());
+console.log(arm.name);
+console.log(arm.attack);
+console.log(arm.durability);
+console.log(arm.range);
+arm.takeDamage(100);
+console.log(arm.getDamage());
+console.log(arm.isBroken());
 
-const bowNew = new BowNew();
+const bow = new Bow();
 
-console.log(bowNew.name);
-console.log(bowNew.attack);
-console.log(bowNew.durability);
-console.log(bowNew.range);
-bowNew.takeDamage(100);
-console.log(bowNew.getDamage());
-console.log(bowNew.isBroken());
+console.log(bow.name);
+console.log(bow.attack);
+console.log(bow.durability);
+console.log(bow.range);
+bow.takeDamage(100);
+console.log(bow.getDamage());
+console.log(bow.isBroken());
 
-const swordNew = new SwordNew();
+const sword = new Sword();
 
-console.log(swordNew.name);
-console.log(swordNew.attack);
-console.log(swordNew.durability);
-console.log(swordNew.range);
-swordNew.takeDamage(100);
-console.log(swordNew.getDamage());
-console.log(swordNew.isBroken());
+console.log(sword.name);
+console.log(sword.attack);
+console.log(sword.durability);
+console.log(sword.range);
+sword.takeDamage(100);
+console.log(sword.getDamage());
+console.log(sword.isBroken());
 
-const knifeNew = new KnifeNew();
+const knife = new Knife();
 
-console.log(knifeNew.name);
-console.log(knifeNew.attack);
-console.log(knifeNew.durability);
-console.log(knifeNew.range);
-knifeNew.takeDamage(100);
-console.log(knifeNew.getDamage());
-console.log(knifeNew.isBroken());
+console.log(knife.name);
+console.log(knife.attack);
+console.log(knife.durability);
+console.log(knife.range);
+knife.takeDamage(100);
+console.log(knife.getDamage());
+console.log(knife.isBroken());
 
-const staffNew = new StaffNew();
+const staff = new Staff();
 
-console.log(staffNew.name);
-console.log(staffNew.attack);
-console.log(staffNew.durability);
-console.log(staffNew.range);
-staffNew.takeDamage(100);
-console.log(staffNew.getDamage());
-console.log(staffNew.isBroken());
+console.log(staff.name);
+console.log(staff.attack);
+console.log(staff.durability);
+console.log(staff.range);
+staff.takeDamage(100);
+console.log(staff.getDamage());
+console.log(staff.isBroken());
 
-const longBowNew = new LongBowNew();
+const longBow = new LongBow();
 
-console.log(longBowNew.name);
-console.log(longBowNew.attack);
-console.log(longBowNew.durability);
-console.log(longBowNew.range);
-longBowNew.takeDamage(100);
-console.log(longBowNew.getDamage());
-console.log(longBowNew.isBroken());
+console.log(longBow.name);
+console.log(longBow.attack);
+console.log(longBow.durability);
+console.log(longBow.range);
+longBow.takeDamage(100);
+console.log(longBow.getDamage());
+console.log(longBow.isBroken());
 
-const axeNew = new AxeNew();
+const axe = new Axe();
 
-console.log(axeNew.name);
-console.log(axeNew.attack);
-console.log(axeNew.durability);
-console.log(axeNew.range);
-axeNew.takeDamage(100);
-console.log(axeNew.getDamage());
-console.log(axeNew.isBroken());
+console.log(axe.name);
+console.log(axe.attack);
+console.log(axe.durability);
+console.log(axe.range);
+axe.takeDamage(100);
+console.log(axe.getDamage());
+console.log(axe.isBroken());
 
 //Задание 3
 
