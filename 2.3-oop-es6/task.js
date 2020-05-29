@@ -1,12 +1,17 @@
 //Задание 1
 
 class Weapon {
-  constructor(name, attack, durability, range) {
-    this.name = name;
-    this.attack = attack;
-    this.durability = durability;
-    this.range = range;
-    this.durabilityFirst = durability;
+  constructor(weapon = {
+    name: 'undefined',
+    attack: 0,
+    durability: 0,
+    range: 0
+  }) {
+    this.name = weapon.name;
+    this.attack = weapon.attack;
+    this.durability = weapon.durability;
+    this.range = weapon.range;
+    this.durabilityFirst = weapon.durability;
   }
 
   takeDamage(damage) {
@@ -20,7 +25,7 @@ class Weapon {
     if (this.durability === 0) {
       return 0;
     } else if (this.durability < this.durabilityFirst * 0.3) {
-      return this.attack = this.attack / 2;
+      return this.attack / 2;
     } else {
       return this.attack;
     }
@@ -36,24 +41,24 @@ class Weapon {
 }
 
 const sword = new Weapon({
-  name: 'Старый меч',
-  attack: 20,
-  durability: 10,
-  range: 1
+    name: 'Старый меч',
+    attack: 20,
+    durability: 10,
+    range: 1
 });
 
 const arm = new Weapon({
-  name: 'Рука',
-  attack: 1,
-  durability: Infinity,
-  range: 1,
+    name: 'Рука',
+    attack: 1,
+    durability: Infinity,
+    range: 1,
 });
 
 const bow = new Weapon({
-  name: 'Лук',
-  attack: 10,
-  durability: 200,
-  range: 3,
+    name: 'Лук',
+    attack: 10,
+    durability: 200,
+    range: 3,
 });
 
 sword.takeDamage(5);
@@ -66,7 +71,7 @@ console.log(sword.durability); // 0
 
 class Arm extends Weapon {
   constructor() {
-    super()
+  super()
     this.name = 'Рука';
     this.attack = 1;
     this.durability = Infinity;
@@ -76,7 +81,7 @@ class Arm extends Weapon {
 
 class Bow extends Weapon {
   constructor() {
-    super()
+  super()
     this.name = 'Лук';
     this.attack = 10;
     this.durability = 200;
@@ -86,7 +91,7 @@ class Bow extends Weapon {
 
 class Sword extends Weapon {
   constructor() {
-    super()
+  super()
     this.name = 'Меч';
     this.attack = 25;
     this.durability = 500;
@@ -96,7 +101,7 @@ class Sword extends Weapon {
 
 class Knife extends Weapon {
   constructor() {
-    super()
+  super()
     this.name = 'Нож';
     this.attack = 5;
     this.durability = 300;
@@ -106,7 +111,7 @@ class Knife extends Weapon {
 
 class Staff extends Weapon {
   constructor() {
-    super()
+  super()
     this.name = 'Посох';
     this.attack = 8;
     this.durability = 300;
@@ -116,7 +121,7 @@ class Staff extends Weapon {
 
 class LongBow extends Bow {
   constructor() {
-    super()
+  super()
     this.name = 'Длинный лук';
     this.attack = 15;
     this.range = 4;
@@ -125,7 +130,7 @@ class LongBow extends Bow {
 
 class Axe extends Sword {
   constructor() {
-    super()
+  super()
     this.name = 'Секира';
     this.attack = 27;
     this.durability = 800;
@@ -134,7 +139,7 @@ class Axe extends Sword {
 
 class StormStaff extends Staff {
   constructor() {
-    super()
+  super()
     this.name = 'Посох Бури';
     this.attack = 10;
     this.range = 3;
@@ -214,19 +219,19 @@ console.log(newbow.isBroken());
 //Задание 3
 
 class StudentLog {
-  constructor(name) {
-    this.name = name;
-    this.subject = {};
-  }
+    constructor(name) {
+        this.name = name;
+        this.subject = {};
+    }
 
-  getName() {
-    return this.name;
-  }
+    getName() {
+        return this.name;
+    }
 
-  addGrade(grade, subject) {
-    if (grade > 5 || grade <= 0 || typeof grade != 'number') {
-      console.log(`Вы пытались поставить оценку \"${grade}\" по предмету \"${subject}\". Допускаются только числа от 1 до 5.`);
-      return this.subject[subject] ? this.subject[subject].length : 'Оценок нет'
+ addGrade(grade, subject) {
+  if (grade > 5 || grade <= 0 || typeof grade != 'number') {
+    console.log(`Вы пытались поставить оценку \"${grade}\" по предмету \"${subject}\". Допускаются только числа от 1 до 5.`);
+    return this.subject[subject] ? this.subject[subject].length: 'Оценок нет'
     } else {
       if (!this.subject[subject]) {
         this.subject[subject] = [];
@@ -241,12 +246,12 @@ class StudentLog {
   getAverageBySubject(subject) {
     let sumGrade = 0;
     let average = 0;
-    if (this.subject[subject]) {
-      for (let grade of this.subject[subject]) {
-        sumGrade += grade;
+      if (this.subject[subject]) {
+        for (let grade of this.subject[subject]) {
+          sumGrade += grade;
+        }
+        average = sumGrade / this.subject[subject].length;
       }
-      average = sumGrade / this.subject[subject].length;
-    }
     return average;
   }
 
