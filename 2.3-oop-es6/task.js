@@ -76,6 +76,7 @@ class Arm extends Weapon {
     this.attack = 1;
     this.durability = Infinity;
     this.range = 1;
+    this.durabilityFirst = this.durability;
   }
 }
 
@@ -86,6 +87,7 @@ class Bow extends Weapon {
     this.attack = 10;
     this.durability = 200;
     this.range = 3;
+    this.durabilityFirst = this.durability;
   }
 }
 
@@ -96,6 +98,7 @@ class Sword extends Weapon {
     this.attack = 25;
     this.durability = 500;
     this.range = 1;
+    this.durabilityFirst = this.durability;
   }
 }
 
@@ -106,6 +109,7 @@ class Knife extends Weapon {
     this.attack = 5;
     this.durability = 300;
     this.range = 1;
+    this.durabilityFirst = this.durability;
   }
 }
 
@@ -116,6 +120,7 @@ class Staff extends Weapon {
     this.attack = 8;
     this.durability = 300;
     this.range = 2;
+    this.durabilityFirst = this.durability;
   }
 }
 
@@ -125,6 +130,7 @@ class LongBow extends Bow {
     this.name = 'Длинный лук';
     this.attack = 15;
     this.range = 4;
+    this.durabilityFirst = this.durability;
   }
 }
 
@@ -134,6 +140,7 @@ class Axe extends Sword {
     this.name = 'Секира';
     this.attack = 27;
     this.durability = 800;
+    this.durabilityFirst = this.durability;
   }
 }
 
@@ -143,6 +150,7 @@ class StormStaff extends Staff {
     this.name = 'Посох Бури';
     this.attack = 10;
     this.range = 3;
+    this.durabilityFirst = this.durability;
   }
 }
 
